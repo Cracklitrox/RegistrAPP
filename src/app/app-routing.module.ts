@@ -3,13 +3,25 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'password-reset',
+    loadChildren: () => import('./password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
+  },
+  {
+    path: 'waiting-page-login',
+    loadChildren: () => import('./waiting-page-login/waiting-page-login.module').then( m => m.WaitingPageLoginPageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'waiting-page-login',
     pathMatch: 'full'
+  },
+  {
+    path: 'waiting-page-welcome-user',
+    loadChildren: () => import('./waiting-page-welcome-user/waiting-page-welcome-user.module').then( m => m.WaitingPageWelcomeUserPageModule)
   },
 ];
 
