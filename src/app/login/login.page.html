@@ -1,6 +1,6 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="text-align: center;">
   <ion-toolbar color="primary">
-    <ion-title>Inicio Sesion</ion-title>
+    <ion-title>Iniciar Sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,13 +11,13 @@
       <img src="assets/images/logo_transparente.png" alt="Logo Duoc UC">
     </div>
     <ion-card-header>
-      <ion-card-title style="text-align: center;"> Duoc UC le da la bienvenida!! </ion-card-title>
+      <ion-card-title style="text-align: center;">¡Bienvenido a la comunidad educativa de Duoc UC! Estamos emocionados de tenerte aquí.</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="formularioLogin" (keyup.enter)="Ingresar()">
         <ion-item>
-          <ion-label position="floating">Nombre de usuario</ion-label>
-          <ion-input formControlName="nombre"></ion-input>
+          <ion-label position="floating">Correo institucional</ion-label>
+          <ion-input formControlName="correo" type="text"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
@@ -25,15 +25,16 @@
         </ion-item>
       </form>
       <br>
-      <ion-button [routerLink]="['/assistance-page']" click="Ingresar()"> Ingresar </ion-button>
+      <ion-button class="boton_ingresar" (click)="Ingresar()"> Ingresar </ion-button>
+      <ion-button class="boton_contrasena_olvidada" [routerLink]="['/password-reset']">Olvidaste tu contraseña?</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/password-reset']">Olvidaste tu contraseña?</ion-button>
-    </ion-buttons>
+<ion-footer style="text-align: center;">
+  <ion-toolbar>
+    <div class="image-container">
+      <img src="assets/images/logo_footer.png" alt="Logo Acreditacion">
+    </div>
   </ion-toolbar>
 </ion-footer>
