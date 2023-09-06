@@ -14,7 +14,7 @@
       <ion-card-title style="text-align: center;"> Duoc UC le da la bienvenida!! </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form [formGroup]="formularioLogin">
+      <form [formGroup]="formularioLogin" (keyup.enter)="Ingresar()">
         <ion-item>
           <ion-label position="floating">Nombre de usuario</ion-label>
           <ion-input formControlName="nombre"></ion-input>
@@ -25,7 +25,7 @@
         </ion-item>
       </form>
       <br>
-      <ion-button [routerLink]="['/assistance-page']"> Ingresar </ion-button>
+      <ion-button [routerLink]="['/assistance-page']" click="Ingresar()"> Ingresar </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
