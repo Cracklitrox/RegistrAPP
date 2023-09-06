@@ -1,0 +1,28 @@
+.image-container {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+.registro-card {
+    padding: 10px;
+}
+
+.boton_registrar_asistencia {
+    width: 100%;
+}
+
+.asignatura-horario,
+.hora-registro {
+    text-align: center;
+    margin-top: 10px;
+}
+
+ion-list {
+    ion-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
