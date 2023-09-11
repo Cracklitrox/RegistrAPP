@@ -1,46 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, ViewChildren } from '@angular/core';
+import type { QueryList } from '@angular/core';
+import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-waiting-page-login',
   templateUrl: './waiting-page-login.page.html',
   styleUrls: ['./waiting-page-login.page.scss'],
 })
-export class WaitingPageLoginPage implements OnInit {
 
-  constructor(private router: Router, private animationCtrl: AnimationController) { }
+export class WaitingPageLoginPage {
+  @ViewChildren('animatedElement', { read: ElementRef }) elements!: QueryList<ElementRef<HTMLElement>>;
 
-  ngOnInit() {
-    const delay = 4000;
-    setTimeout(() => {
+  private animation!: Animation;
+  private elementA?: Animation;
+
+  constructor(private animationCtrl: AnimationController, private router: Router) {}
+
+  ngAfterViewInit() {
+    const element0 = this.elements.first;
+    if (element0) {
+      this.elementA = this.animationCtrl
+        .create()
+        .addElement(element0.nativeElement)
+        .keyframes([
+          { offset: 0, transform: 'scale(1)' },
+          { offset: 0.3, transform: 'scale(1.2)' },
+          { offset: 1, transform: 'scale(1)' },
+        ]);
+    }
+
+    const animationsToCombine: Animation[] = [this.elementA].filter(animation => animation !== undefined) as Animation[];
+    this.animation = this.animationCtrl
+      .create()
+      .duration(3000)
+      .iterations(1)
+      .addAnimation(animationsToCombine);
+
+    this.play();
+
+    this.animation.onFinish(() => {
       this.router.navigate(['/login']);
-    }, delay);
+    });
   }
 
-  ionViewWillEnter() {
-    const logoContainer = document.querySelector('.logo-container');
-    if (logoContainer) {
-      const enterAnimation = this.animationCtrl.create()
-        .addElement(logoContainer)
-        .duration(500)
-        .fromTo('opacity', '0', '1')
-        .fromTo('transform', 'translateY(10px)', 'translateY(0)');
-
-      enterAnimation.play();
-    }
+  play() {
+    this.animation.play();
   }
-
-  ionViewWillLeave() {
-    const logoContainer = document.querySelector('.logo-container');
-    if (logoContainer) {
-      const leaveAnimation = this.animationCtrl.create()
-        .addElement(logoContainer)
-        .duration(500)
-        .fromTo('opacity', '1', '0');
-
-      leaveAnimation.play();
-    }
-  }
-
 }

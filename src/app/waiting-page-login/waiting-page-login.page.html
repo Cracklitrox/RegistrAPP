@@ -1,8 +1,17 @@
-<ion-content>
-  <div class="logo-container">
-    <ion-img 
-      class="logo"
-      src="assets/images/logo_transparente.png" alt="Logo Duoc UC en formato PNG"
-    ></ion-img>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pagina_espera1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<ion-content [fullscreen]="true" class="content">
+  <div class="centered-content" #animatedElement>
+    <ion-img class="logo-image" src="assets/images/logo.png" alt="Logo Institucion"></ion-img>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-progress-bar type="indeterminate" color="tertiary"></ion-progress-bar>
+</ion-footer>

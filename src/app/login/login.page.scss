@@ -1,25 +1,73 @@
-.image-container img {
-    width: 100%;
-    max-width: 50%;
+.logo-container {
+    text-align: center;
+    margin-top: 25%;
+}
+
+.mensaje-Hora-Actual {
+    text-align: center;
+    font-size: 24px;
+    color: #102fc6ad;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.logo-footer {
     display: block;
     margin: 0 auto;
-}
-ion-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin-top: 15%;
+    max-width: 70%;
+    height: auto;
 }
 
-ion-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.login-card {
+    animation: slide-up 1.3s ease-in-out;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    height: 100px;
+    transform: translateY(100%);
+    transform-origin: center center;
 }
 
+.custom-button-1 {
+    --background: #007bff; /* Color de fondo principal (azul) */
+    --background-hover: #0056b3; /* Color de fondo al pasar el mouse (azul más oscuro) */
+    --background-activated: #0056b3; /* Color de fondo al presionar (azul más oscuro) */
+    --background-focused: #007bff; /* Color de fondo al enfocar (azul) */
+    color: white; /* Color del texto (blanco) */
+    --border-color: #0056b3; /* Color del borde (azul más oscuro) */
+    --border-style: solid;
+    --border-width: 1px;
+    --box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+    --ripple-color: #0056b3; /* Color del efecto de onda al hacer clic (azul más oscuro) */
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}
 
-ion-button:hover {
-    --background: rgba(22, 200, 200, 0.572);
+.custom-button-2 {
+    --background: orange; /* Color de fondo principal */
+    --background-hover: yellow; /* Color de fondo al pasar el mouse */
+    --background-activated: darkorange; /* Color de fondo al presionar */
+    --background-focused: orange; /* Color de fondo al enfocar */
+    color: black; /* Color del texto */
+    --border-color: #000;
+    --border-style: solid;
+    --border-width: 1px;
+    --box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+    --ripple-color: deeppink;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(calc(50% - 110px));
+    }
 }

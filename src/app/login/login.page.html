@@ -1,40 +1,46 @@
-<ion-header [translucent]="true" style="text-align: center;">
-  <ion-toolbar color="primary">
-    <ion-title>Iniciar Sesion</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <div class="logo-container">
+    <ion-img src="assets/images/logo.png" alt="Logo"></ion-img>
+  </div>
 
-<ion-content>
-
-  <ion-card>
-    <div class="image-container">
-      <img src="assets/images/logo_transparente.png" alt="Logo Duoc UC">
-    </div>
-    <ion-card-header>
-      <ion-card-title style="text-align: center;">¡Bienvenido a la comunidad educativa de Duoc UC! Estamos emocionados de tenerte aquí.</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form [formGroup]="formularioLogin" (keyup.enter)="Ingresar()">
-        <ion-item>
-          <ion-label position="floating">Correo institucional</ion-label>
-          <ion-input formControlName="correo" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input formControlName="password" type="password"></ion-input>
-        </ion-item>
-      </form>
-      <br>
-      <ion-button class="boton_ingresar" (click)="Ingresar()"> Ingresar </ion-button>
-      <ion-button class="boton_contrasena_olvidada" [routerLink]="['/password-reset']">Olvidaste tu contraseña?</ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div class="mensaje-Hora-Actual">
+    {{ mensajeHoraActual }}
+  </div>
+  
+  <ion-card-content class="login-card">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Correo Institucional</ion-label>
+        <ion-input type="text" id="correoInstitucional" [(ngModel)]="correoInstitucional" name="correoInstitucional" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required></ion-input>
+      </ion-item>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center ion-align-items-center">
+          <ion-col size="8">
+            <ion-button shape="round" expand="block" class="custom-button-1" type="submit">
+              <ion-icon name="log-in-outline"></ion-icon>
+              Ingresar
+            </ion-button>          
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button shape="round" expand="full" class="custom-button-2" (click)="redirigirOlvidoContrasena()">
+              <ion-icon name="key-outline"></ion-icon>
+              Olvidé mi contraseña
+            </ion-button>          
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card-content>
 </ion-content>
 
-<ion-footer style="text-align: center;">
+<ion-footer>
   <ion-toolbar>
-    <div class="image-container">
-      <img src="assets/images/logo_footer.png" alt="Logo Acreditacion">
-    </div>
+    <ion-img class="logo-footer" [src]="imagenFooter" alt="Logo"></ion-img>
   </ion-toolbar>
 </ion-footer>
