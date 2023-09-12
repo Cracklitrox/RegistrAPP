@@ -61,7 +61,7 @@ export class LoginPage {
     }
 
     this.mostrarAlerta('Éxito', 'Inicio de sesión exitoso');
-    this.router.navigate(['/assistance-page']);
+    this.router.navigate(['/waiting-page-login']);
   }
 
   async mostrarAlerta(titulo: string, mensaje: string) {

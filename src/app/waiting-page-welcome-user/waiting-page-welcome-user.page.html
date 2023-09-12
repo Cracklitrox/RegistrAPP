@@ -1,22 +1,14 @@
 <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+</ion-content>
 
-<ion-item-divider class="divLogo">
-  <div style="width: 100%; text-align: center">  
-    <ion-img 
-    class="logo"
-    src="assets\images\Logo-DUOC-transparente.png"
-    alt="Logo Duoc UC en formato PNG"
-    > </ion-img>
+<ion-content [fullscreen]="true" class="content">
+  <div class="centered-content" #animatedElement>
+    <ion-img class="logo-image" src="assets/images/logo.png" alt="Logo Institucion"></ion-img>
   </div>
-</ion-item-divider>
-
-  <ion-item-divider class="divText">
-    <div style="width: 100%; text-align: center; color:black"> <h1>Bienvenido {{"usuario"}}</h1> </div>
-  </ion-item-divider>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary">
-    <ion-progress-bar type="indeterminate" color="warning"></ion-progress-bar>  
-  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" color="tertiary"></ion-progress-bar>
 </ion-footer>

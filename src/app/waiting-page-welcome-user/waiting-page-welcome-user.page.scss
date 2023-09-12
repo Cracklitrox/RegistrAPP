@@ -1,16 +1,11 @@
-.divLogo {
-    border: 0cap;
-    border-color: white;
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1%;
 }
 
-.logo {
-    padding-top: 0%;
-    max-width: 100%;
-    height: auto;
-  }
-
-.divText {
-    padding-top: 30%;
-    border-color: white;
-    text-align: center;
-  }
+.logo-image {
+  width: 80%;
+  height: auto;
+}
