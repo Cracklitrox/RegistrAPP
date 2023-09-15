@@ -1,11 +1,17 @@
 .centered-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 1%;
+  height: 10%;
 }
 
 .logo-image {
   width: 80%;
   height: auto;
+  margin-bottom: 20px;
+}
+
+.welcomeUser {
+  text-align: center;
 }

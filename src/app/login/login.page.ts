@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginPage {
   constructor(
     private platform: Platform,
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     this.imagenFooter = '';
     this.detectarTema();
@@ -59,9 +61,9 @@ export class LoginPage {
       this.mostrarAlerta('Error', 'La contraseña debe tener entre 8 y 30 caracteres.');
       return;
     }
-
     this.mostrarAlerta('Éxito', 'Inicio de sesión exitoso');
-    this.router.navigate(['/waiting-page-login']);
+    this.router.navigate(['/waiting-page-welcome-user']);
+    this.userService.setCorreoInstitucional(this.correoInstitucional);
   }
 
   async mostrarAlerta(titulo: string, mensaje: string) {

@@ -23,9 +23,6 @@ const routes: Routes = [
   {
     path: 'waiting-page-welcome-user',
     loadChildren: () => import('./waiting-page-welcome-user/waiting-page-welcome-user.module').then( m => m.WaitingPageWelcomeUserPageModule)
-  },  {
-    path: 'assistance-page',
-    loadChildren: () => import('./assistance-page/assistance-page.module').then( m => m.AssistancePagePageModule)
   },
 
 ];

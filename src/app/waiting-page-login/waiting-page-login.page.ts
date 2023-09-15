@@ -41,7 +41,7 @@ export class WaitingPageLoginPage {
     this.play();
 
     this.animation.onFinish(() => {
-      this.router.navigate(['/assistance-page']);
+      this.router.navigate(['/login']);
     });
   }
 

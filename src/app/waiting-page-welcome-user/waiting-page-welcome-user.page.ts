@@ -3,6 +3,7 @@ import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-waiting-page-welcome-user',
@@ -10,13 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./waiting-page-welcome-user.page.scss'],
 })
 export class WaitingPageWelcomeUserPage {
-  @ViewChildren('animatedElement', { read: ElementRef }) elements!:
-  QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('animatedElement', { read: ElementRef }) elements!: QueryList<ElementRef<HTMLElement>>;
 
   private animation!: Animation;
   private elementWaitingPageUser?: Animation;
+  correoInstitucional: string = '';
 
-  constructor(private animationCtrl: AnimationController, private router: Router) {}
+  constructor(private animationCtrl: AnimationController, private router: Router, private userService: UserService) {}
+
+  ngOnInit() {
+    this.correoInstitucional = this.userService.getCorreoInstitucional();
+  }
 
   ngAfterViewInit() {
     const element0 = this.elements.first;
@@ -28,6 +33,10 @@ export class WaitingPageWelcomeUserPage {
           { offset: 0, transform: 'scale(1)' },
           { offset: 0.3, transform: 'scale(1.2)' },
           { offset: 1, transform: 'scale(1)' },
+        ])
+        .keyframes([
+          { offset: 0, opacity: 0 },
+          { offset: 1, opacity: 1 },
         ]);
     }
 
@@ -41,7 +50,7 @@ export class WaitingPageWelcomeUserPage {
     this.play();
 
     this.animation.onFinish(() => {
-      this.router.navigate(['/assistance-page']);
+      this.router.navigate(['/login']);
     });
   }
 
