@@ -1,3 +1,41 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content" class="custom-menu">
+    <ion-header>
+      <div class="logo-container" [class]="isDarkMode ? 'logo-dark' : 'logo-light'"></div>
+    </ion-header>
+    <ion-content class="menu-content">
+      <ion-list lines="none" class="menu-list">
+        <ion-item (click)="navigateToPage('main-page')">
+          <ion-icon slot="start" name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('subjects')">
+          <ion-icon slot="start" name="library"></ion-icon>
+          <ion-label>Asignaturas</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('register-attendance')">
+          <ion-icon slot="start" name="qr-code"></ion-icon>
+          <ion-label>Registrar Asistencia</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('assistance')">
+          <ion-icon slot="start" name="today"></ion-icon>
+          <ion-label>Asistencia</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('notes')">
+          <ion-icon slot="start" name="reader"></ion-icon>
+          <ion-label>Apuntes</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('virtual-credential')">
+          <ion-icon slot="start" name="id-card"></ion-icon>
+          <ion-label>Credencial Virtual</ion-label>
+        </ion-item>
+        <ion-item (click)="navigateToPage('options')">
+          <ion-icon slot="start" name="construct"></ion-icon>
+          <ion-label>Opciones</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

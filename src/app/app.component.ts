@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { IonMenu } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,40 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  isDarkMode = false;
+
+  @ViewChild(IonMenu) menu: IonMenu | undefined;
+
+  constructor(private router: Router) {
+    this.detectThemeChange();
+  }
+
+  navigateToPage(page: string) {
+    this.router.navigateByUrl(`/${page}`);
+    if (this.menu && !this.menu.disabled) {
+      this.menu.close();
+    }
+  }
+
+  detectThemeChange() {
+    const esTemaOscuro = localStorage.getItem('tema') === 'oscuro';
+    this.isDarkMode = esTemaOscuro;
+  }
+
+  @HostListener('window:themeChange', ['$event'])
+  onThemeChange(event: any) {
+    this.detectThemeChange();
+  }
+
+  ngAfterViewInit() {
+    if (this.menu) {
+      this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          if (this.menu && !this.menu.disabled) {
+            this.menu.close();
+          }
+        }
+      });
+    }
+  }
 }

@@ -50,7 +50,7 @@ export class WaitingPageWelcomeUserPage {
     this.play();
 
     this.animation.onFinish(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/main-page']);
     });
   }
 

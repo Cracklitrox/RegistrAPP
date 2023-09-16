@@ -61,7 +61,6 @@ export class LoginPage {
       this.mostrarAlerta('Error', 'La contraseña debe tener entre 8 y 30 caracteres.');
       return;
     }
-    this.mostrarAlerta('Éxito', 'Inicio de sesión exitoso');
     this.router.navigate(['/waiting-page-welcome-user']);
     this.userService.setCorreoInstitucional(this.correoInstitucional);
   }
