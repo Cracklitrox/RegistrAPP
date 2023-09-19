@@ -1,7 +1,7 @@
 .custom-menu {
-    --ion-background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    --ion-background-color: rgba(255, 255, 255, 0.9);
     --ion-padding: 0;
-    background: transparent; /* Fondo transparente */
+    background: transparent;
 }
 
 
@@ -10,13 +10,14 @@
     justify-content: center;
     align-items: center;
     padding: 20%;
+    margin-bottom: 10%;
 }
 
 .logo-light,
 .logo-dark {
     background-repeat: no-repeat;
-    background-position: center; /* Esto centra la imagen horizontalmente */
-    background-size: contain; /* Esto ajusta el tamaño de la imagen para que quepa en el contenedor */
+    background-position: center;
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,20 +53,12 @@
     font-weight: 200;
 }
 
-.logo-light {
-    background-image: url('../assets/images/dark/image.png');
-}
-
-.logo-dark {
-    background-image: url('../assets/images/logo-duoc.png');
-}
-
 @media (prefers-color-scheme: dark) {
     .custom-menu {
         --ion-background-color: rgba(0, 0, 0, 1);
     }
     .logo-container {
-        background: transparent url('../assets/images/logo-duoc.png') center/contain no-repeat;
+        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
     }
 }
 
@@ -74,6 +67,6 @@
         --ion-background-color: rgba(255, 255, 255, 1);
     }
     .logo-container {
-        background: transparent url('../assets/images/dark/image.png') center/contain no-repeat;
+        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
     }
 }
