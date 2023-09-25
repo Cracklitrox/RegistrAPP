@@ -3,7 +3,6 @@ import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-waiting-page-welcome-user',
@@ -17,11 +16,7 @@ export class WaitingPageWelcomeUserPage {
   private elementWaitingPageUser?: Animation;
   correoInstitucional: string = '';
 
-  constructor(private animationCtrl: AnimationController, private router: Router, private userService: UserService) {}
-
-  ngOnInit() {
-    this.correoInstitucional = this.userService.getCorreoInstitucional();
-  }
+  constructor(private animationCtrl: AnimationController, private router: Router) {}
 
   ngAfterViewInit() {
     const element0 = this.elements.first;

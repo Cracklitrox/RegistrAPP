@@ -1,6 +1,7 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IonMenu } from '@ionic/angular';
+import { DatabaseService } from './database.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,13 @@ import { IonMenu } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   isDarkMode = false;
 
   @ViewChild(IonMenu) menu: IonMenu | undefined;
 
-  constructor(private router: Router) {
-    this.detectThemeChange();
+  constructor(private router: Router, private databaseService: DatabaseService) {
+    this.detectThemeChange()
   }
 
   navigateToPage(page: string) {

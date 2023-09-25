@@ -66,3 +66,17 @@
         transform: translateY(calc(50% - 110px));
     }
 }
+
+
+@media (prefers-color-scheme: light) {
+    #logo_footer {
+        content: url('../../assets/images/dark/logo_footer.png');
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #logo_footer {
+        
+        content: url('../../assets/images/logo_footer.png');
+    }
+}

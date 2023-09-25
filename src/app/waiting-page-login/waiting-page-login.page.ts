@@ -3,6 +3,7 @@ import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-waiting-page-login',
@@ -16,7 +17,12 @@ export class WaitingPageLoginPage {
   private animation!: Animation;
   private elementA?: Animation;
 
-  constructor(private animationCtrl: AnimationController, private router: Router) {}
+  constructor(private animationCtrl: AnimationController, private router: Router, private databaseService: DatabaseService) {}
+
+  ionViewDidEnter() {
+    this.databaseService.createTablesAndInsertData();
+  }
+  
 
   ngAfterViewInit() {
     const element0 = this.elements.first;

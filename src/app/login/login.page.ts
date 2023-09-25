@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,28 +14,17 @@ export class LoginPage {
   constructor(
     private platform: Platform,
     private alertController: AlertController,
-    private router: Router,
-    private userService: UserService
+    private router: Router
   ) {
-    this.imagenFooter = '';
-    this.detectarTema();
+    this.metodoHoraActual();
   }
 
-  public imagenFooter: string;
   public mensajeHoraActual: string = '';
 
   @ViewChild('loginForm') loginForm!: NgForm;
 
   correoInstitucional: string = '';
   contrasena: string = '';
-
-  detectarTema() {
-    this.platform.ready().then(() => {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.imagenFooter = prefersDark ? 'assets/images/logo_footer.png' : 'assets/images/dark/logo_footer.png';
-      this.metodoHoraActual();
-    });
-  }
 
   metodoHoraActual() {
     const horaActual = new Date().getHours();
@@ -62,7 +50,6 @@ export class LoginPage {
       return;
     }
     this.router.navigate(['/waiting-page-welcome-user']);
-    this.userService.setCorreoInstitucional(this.correoInstitucional);
   }
 
   async mostrarAlerta(titulo: string, mensaje: string) {
