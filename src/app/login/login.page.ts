@@ -63,6 +63,7 @@ export class LoginPage {
     }
     this.router.navigate(['/waiting-page-welcome-user']);
     this.userService.setCorreoInstitucional(this.correoInstitucional);
+    this.userService.setContrasena(this.contrasena);
   }
 
   async mostrarAlerta(titulo: string, mensaje: string) {

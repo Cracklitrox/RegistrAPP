@@ -16,11 +16,12 @@ export class WaitingPageLoginPage {
   private animation!: Animation;
   private elementA?: Animation;
 
-  constructor(private animationCtrl: AnimationController, private router: Router) {}
+  constructor(private animationCtrl: AnimationController, private router: Router) {console.log('Se cago el constructor');}
 
   ngAfterViewInit() {
     const element0 = this.elements.first;
     if (element0) {
+      console.log('Se ha cargado el ngAfterViewInit');
       this.elementA = this.animationCtrl
         .create()
         .addElement(element0.nativeElement)
@@ -41,11 +42,32 @@ export class WaitingPageLoginPage {
     this.play();
 
     this.animation.onFinish(() => {
+      console.log('Dirigiendo a la pagina login');
       this.router.navigate(['/login']);
     });
   }
 
   play() {
     this.animation.play();
+  }
+
+  ionViewWillEnter() {
+    console.log('Se cargo el ionViewWillEnter');
+  }
+
+  ionViewWillLeave() {
+    console.log('Se cargo el ionViewWillLeave');
+  }
+
+  ionViewDidEnter() {
+    console.log('Se cargo el ionViewDidEnter');
+  }
+
+  ionViewDidLeave() {
+    console.log('Se cargo el ionViewDidLeave');
+  }
+
+  ngOnDestroy() {
+    console.log('Se cargo el ngOnDestroy')
   }
 }
