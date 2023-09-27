@@ -37,6 +37,9 @@ export class LoginPage {
       this.metodoHoraActual();
     });
   }
+  ngOnInit(){
+    console.log('On init');
+  }
 
   metodoHoraActual() {
     const horaActual = new Date().getHours();

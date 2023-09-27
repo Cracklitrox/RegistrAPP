@@ -20,7 +20,7 @@ export class WaitingPageWelcomeUserPage {
   constructor(private animationCtrl: AnimationController, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
-    this.correoInstitucional = this.userService.getCorreoInstitucional();
+    this.correoInstitucional = this.userService.getNombreCorreoInstitucional();
   }
 
   ngAfterViewInit() {

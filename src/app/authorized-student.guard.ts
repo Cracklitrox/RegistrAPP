@@ -10,10 +10,12 @@ export class AuthorizedStudentGuard implements CanActivate {
   constructor(private router: Router, private userService: UserService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const correoInstitucional = this.userService.getCorreoInstitucional();
+    state: RouterStateSnapshot){
+    const correoInstitucional = this.userService.getNombreCorreoInstitucional();
     const contrasena = this.userService.getContrasena();
 
+    return true;
+    /*
     if (correoInstitucional === 'c.gacitua' && contrasena === 'carlitos8') {
       console.log(correoInstitucional);
       console.log(contrasena);
@@ -26,6 +28,7 @@ export class AuthorizedStudentGuard implements CanActivate {
       this.router.navigate(['login']);
       return false;
     }
+    */
   }
   
 }
