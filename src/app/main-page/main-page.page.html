@@ -10,15 +10,51 @@
   <div class="rectangulo">
     <div class="imagen1">
       <img id="imagen-duoc" alt="Imagen 1">
-    </div>    
+    </div>
     <div class="contenedor-imagenes">
       <div class="imagen2">
         <img id="qr" src='assets/images/pruebas/qrcode-generado.png' alt="Imagen 2">
       </div>
       <div class="texto">
-        <h1><b>Matias Soto</b></h1>
-        <h2><b>Ingenieria en Informatica</b></h2>
+        <h1><b>Matías Soto</b></h1>
+        <h2><b>Ingeniería en Informática</b></h2>
         <h2><b>99.999.999-1</b></h2>
+      </div>
+    </div>
+  </div>
+  <div class="Horario">
+    <h1 class="titulo_asignaturas">Asignaturas</h1>
+    <div class="rectangulo_horario">
+      <h1><b>{{ diaActual }}</b></h1>
+      <div *ngIf="materias">
+        <div *ngFor="let materia of materias">
+          <div class="materia_contenedor">
+            <div class="rectangulo_materia">
+              <div class="top-half">
+                <h1 class="titulo_asignatura">{{ materia.titulo }}</h1>
+              </div>
+              <div class="bottom-half">
+                  <div class="left-half">
+                    <p class="nombre_profesor">{{ materia.profesor }}</p>
+                  </div>
+                  <div class="right-half">
+                    <p class="id_salon">Salón: {{ materia.idClase }}</p>
+                  </div>
+              </div>
+              <p class="horario">Horario: {{ materia.horarioClaseInicio }} - {{ materia.horarioClaseFinal }}</p>
+            </div>
+            <div class="rectangulo_lado_derecho">
+              <div class="asistencia-container">
+                  <p class="asistenciaPorcentaje">Asistencia: {{ materia.porcentajeAsistencia }}%</p>
+              </div>
+              <div class="boton-container">
+                  <ion-button fill="clear">
+                    <p id="imagenCamaraQR" class="imagenCamaraQR"></p>
+                  </ion-button>
+              </div>
+            </div>          
+          </div>
+        </div>
       </div>
     </div>
   </div>
