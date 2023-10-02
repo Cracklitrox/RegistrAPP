@@ -1,5 +1,11 @@
-.logo {
-    padding-top: 60%;
-    max-width: 100%;
-    height: auto;
-  }
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1%;
+}
+
+.logo-image {
+  width: 80%;
+  height: auto;
+}

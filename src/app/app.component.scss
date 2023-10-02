@@ -1,0 +1,72 @@
+.custom-menu {
+    --ion-background-color: rgba(255, 255, 255, 0.9);
+    --ion-padding: 0;
+    background: transparent;
+}
+
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20%;
+    margin-bottom: 10%;
+}
+
+.logo-light,
+.logo-dark {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.menu-list {
+    flex-grow: 1;
+}
+
+.menu-list ion-item {
+    display: flex;
+    align-items: center;
+    padding: 2% 1%;
+}
+
+.menu-list ion-icon {
+    font-size: 180%;
+    margin-right: 15%;
+}
+
+.menu-list ion-label {
+    flex: 1;
+    text-align: center;
+    font-weight: 200;
+}
+
+@media (prefers-color-scheme: dark) {
+    .custom-menu {
+        --ion-background-color: rgba(0, 0, 0, 1);
+    }
+    .logo-container {
+        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .custom-menu {
+        --ion-background-color: rgba(255, 255, 255, 1);
+    }
+    .logo-container {
+        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
+    }
+}

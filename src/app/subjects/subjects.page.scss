@@ -1,0 +1,19 @@
+.rectangulo_asignaturas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 10%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.text {
+    text-align: center;
+}
+
+#titulo_asig {
+    padding: 40px;
+}

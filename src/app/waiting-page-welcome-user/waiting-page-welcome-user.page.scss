@@ -1,16 +1,17 @@
-.divLogo {
-    border: 0cap;
-    border-color: white;
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
 }
 
-.logo {
-    padding-top: 0%;
-    max-width: 100%;
-    height: auto;
-  }
+.logo-image {
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
 
-.divText {
-    padding-top: 30%;
-    border-color: white;
-    text-align: center;
-  }
+.welcomeUser {
+  text-align: center;
+}
