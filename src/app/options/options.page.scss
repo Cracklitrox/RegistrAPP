@@ -1,0 +1,26 @@
+.rectangulo_1,
+.rectangulo_2 {
+    display: flex;
+    justify-content: space-between;
+    width: auto; /* Ancho del rectángulo */
+    height: 75px; /* Altura del rectángulo */
+    margin: auto; /* Espacio entre los rectángulos */
+    border: 2px solid red;
+}
+
+.mitad1,
+.mitad2,
+.mitad3,
+.mitad4 {
+    width: 50%;
+    border: 2px solid red;
+}
+
+.mitad1 {
+    padding-left: 4%;
+}
+
+.cambiar_tema {
+    font-size: 120%;
+    font-weight: bold;
+}

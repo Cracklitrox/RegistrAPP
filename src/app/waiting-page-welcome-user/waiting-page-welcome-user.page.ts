@@ -17,7 +17,11 @@ export class WaitingPageWelcomeUserPage {
   private elementWaitingPageUser?: Animation;
   correoInstitucional: string = '';
 
-  constructor(private animationCtrl: AnimationController, private router: Router, private userService: UserService) {}
+  constructor(
+    private animationCtrl: AnimationController,
+    private router: Router,
+    private userService: UserService,
+    ) {}
 
   ngOnInit() {
     this.correoInstitucional = this.userService.getNombreCorreoInstitucional();
