@@ -4,7 +4,6 @@
     background: transparent;
 }
 
-
 .logo-container {
     display: flex;
     justify-content: center;
@@ -22,8 +21,6 @@
     justify-content: center;
     align-items: center;
 }
-
-
 
 .menu-content {
     display: flex;
@@ -58,7 +55,7 @@
         --ion-background-color: rgba(0, 0, 0, 1);
     }
     .logo-container {
-        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
+        background: transparent url("../../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
     }
 }
 
@@ -67,6 +64,6 @@
         --ion-background-color: rgba(255, 255, 255, 1);
     }
     .logo-container {
-        background: transparent url('../../src/assets/images/carreras/Ing_Informatica.png') center/contain no-repeat;
+        background: transparent url("../../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
     }
 }

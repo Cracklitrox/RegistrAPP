@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-main-page',
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class MainPagePage implements OnInit {
   diaActual: string = '';
   materias!: any[];
+  darkMode = false;
 
-  constructor() {
+  constructor(private appComponent: AppComponent) {
     this.setDiaActual();
     this.setMaterias();
+  }
+
+  ngOnInit() {
+    this.appComponent.getDarkMode().subscribe((isDark) => {
+      this.darkMode = isDark;
+    })
   }
 
   setDiaActual() {
@@ -196,9 +204,5 @@ export class MainPagePage implements OnInit {
         break;
     }
     console.log(this.materias);
-  }
-
-  ngOnInit() {
-    console.log('Se ha cargado ngOnInit');
   }
 }
