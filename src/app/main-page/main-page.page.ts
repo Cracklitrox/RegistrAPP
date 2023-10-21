@@ -9,7 +9,6 @@ import { AppComponent } from '../app.component';
 export class MainPagePage implements OnInit {
   diaActual: string = '';
   materias!: any[];
-  darkMode = false;
 
   constructor(private appComponent: AppComponent) {
     this.setDiaActual();
@@ -17,9 +16,6 @@ export class MainPagePage implements OnInit {
   }
 
   ngOnInit() {
-    this.appComponent.getDarkMode().subscribe((isDark) => {
-      this.darkMode = isDark;
-    })
   }
 
   setDiaActual() {

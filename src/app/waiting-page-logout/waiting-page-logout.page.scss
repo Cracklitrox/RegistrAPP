@@ -1,0 +1,17 @@
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.logo-image {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.logout_text {
+    text-align: center;
+}

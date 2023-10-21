@@ -68,7 +68,11 @@ const routes: Routes = [
   {
     path: 'not-found',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },  {
+    path: 'waiting-page-logout',
+    loadChildren: () => import('./waiting-page-logout/waiting-page-logout.module').then( m => m.WaitingPageLogoutPageModule)
   },
+
 
 ];
 

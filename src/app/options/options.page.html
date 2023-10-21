@@ -9,17 +9,18 @@
 <ion-content [fullscreen]="true">
   <div class="rectangulo_1">
     <div class="mitad1">
-      <h1 class="cambiar_tema">Modo Oscuro</h1>
+      <h1 class="cambiar_tema">Cambiar Tema</h1>
     </div>
     <div class="mitad2">
-      <ion-item>
-        <ion-icon slot="start" name="moon"></ion-icon>
-        <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()"></ion-toggle>
-      </ion-item>
+      <ion-icon id="toggle-icon" name="sunny" (click)="toggleDarkTheme()"></ion-icon>
     </div>
   </div>
   <div class="rectangulo_2">
-    <div class="mitad3"></div>
-    <div class="mitad4"></div>
+    <div class="mitad3">
+      <h1 class="cerrar_sesion">Cerrar Sesión</h1>
+    </div>
+    <div class="mitad4">
+      <ion-button id="icono_salir" color="danger" expand="block" (click)="mensajeAdvertencia()">Salir</ion-button>
+    </div>    
   </div>
 </ion-content>
