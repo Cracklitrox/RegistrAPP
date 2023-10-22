@@ -96,7 +96,6 @@
     height: auto;
 }
 
-
 .titulo_asignatura {
     font-size: 100%;
     text-align: center;
@@ -106,7 +105,6 @@
     margin: 0;
     height: 100%;
 }
-
 
 .top-half {
     height: 50%;
@@ -179,27 +177,4 @@
     margin: 0;
     height: 45px;
     align-self: flex-end;
-}
-
-
-
-:host-context(.dark-mode) {
-    #imagen-duoc {
-        content: url("../../assets/images/dark/image.png");
-    }
-    #imagenCamaraQR {
-        content: url("../../assets/icon/qr_white.png");
-    }
-}
-
-:host-context(.light-mode) {
-    #imagen-duoc {
-        content: url("../../assets/images/logo-duoc.png");
-    }
-    #qr {
-        filter: invert(100%);
-    }
-    #imagenCamaraQR {
-        content: url("../../assets/icon/qr_dark.png");
-    }
 }

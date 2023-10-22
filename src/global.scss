@@ -25,6 +25,42 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-@media (prefers-color-scheme: light) {
-    
+
+// Añadir variables CSS aqui, de forma individual.
+body.dark {
+    // Imagen de app.component.html
+    ion-menu[contentId="main-content"] {
+        .logo-container {
+            background: transparent url("../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
+        }
+    }
+
+    // Logo duoc de main-page.page.html
+    ion-content {
+        .rectangulo #imagen-duoc {
+            content: url("../src/assets/images/logo-duoc.png");
+        }
+    }
+}
+
+:root {
+    // Imagen de app.component.html
+    ion-menu[contentId="main-content"] {
+        .logo-container {
+            background: transparent url("../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
+        }
+        .Horario .boton-container #imagenCamaraQR {
+            content: url("/src/assets/icon/qr_white.png");
+        }
+    }
+
+     // Logo duoc de main-page.page.html
+    ion-content {
+        .rectangulo #imagen-duoc {
+            content: url("../src/assets/images/dark/image.png");
+        }
+        .Horario .boton-container #imagenCamaraQR {
+            content: url("/src/assets/icon/qr_dark.png");
+        }
+    }
 }

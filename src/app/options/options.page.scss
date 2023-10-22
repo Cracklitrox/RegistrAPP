@@ -2,10 +2,13 @@
 .rectangulo_2 {
     display: flex;
     justify-content: space-between;
-    width: auto; /* Ancho del rectángulo */
-    height: 75px; /* Altura del rectángulo */
-    margin: auto; /* Espacio entre los rectángulos */
-    border: 2px solid red;
+    width: auto;
+    height: 75px;
+    margin: auto;
+    border-top: 2px solid rgb(43, 40, 40);
+    border-bottom: 2px solid rgb(39, 34, 34);
+    border-left: none;
+    border-right: none;
 }
 
 .mitad1,
@@ -13,14 +16,24 @@
 .mitad3,
 .mitad4 {
     width: 50%;
-    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.mitad1 {
-    padding-left: 4%;
-}
-
-.cambiar_tema {
+.cambiar_tema,
+.cerrar_sesion {
     font-size: 120%;
     font-weight: bold;
+}
+
+#toggle-icon {
+    height: 100%;
+    width: 14%;
+}
+
+#icono_salir {
+    height: 50%;
+    width: 30%;
 }

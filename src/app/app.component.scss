@@ -49,21 +49,3 @@
     text-align: center;
     font-weight: 200;
 }
-
-@media (prefers-color-scheme: dark) {
-    .custom-menu {
-        --ion-background-color: rgba(0, 0, 0, 1);
-    }
-    .logo-container {
-        background: transparent url("../../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    .custom-menu {
-        --ion-background-color: rgba(255, 255, 255, 1);
-    }
-    .logo-container {
-        background: transparent url("../../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
-    }
-}

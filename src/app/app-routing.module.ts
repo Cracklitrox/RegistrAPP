@@ -66,7 +66,13 @@ const routes: Routes = [
     canActivate: [AuthorizedStudentGuard]
   },
   {
-    path: 'not-found',
+    path: 'waiting-page-logout',
+    loadChildren: () => import('./waiting-page-logout/waiting-page-logout.module').then( m => m.WaitingPageLogoutPageModule)
+  },
+
+  {
+    path: '**',
+    component: NotFoundPage,
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
 
