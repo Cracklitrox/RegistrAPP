@@ -17,7 +17,7 @@ const routes: Routes = [
   pathMatch: 'full'
 },
 
-{  path: '',
+{ path: 'waiting-page-login',
   redirectTo: 'waiting-page-login',
   pathMatch: 'full' 
 },

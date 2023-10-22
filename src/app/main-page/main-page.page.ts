@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { APIService } from '../api.service';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-main-page',
@@ -9,13 +13,21 @@ import { AppComponent } from '../app.component';
 export class MainPagePage implements OnInit {
   diaActual: string = '';
   materias!: any[];
+  clima: any []=[];
 
-  constructor(private appComponent: AppComponent) {
+  constructor(private appComponent : AppComponent , private APIService: APIService) {
     this.setDiaActual();
     this.setMaterias();
   }
 
   ngOnInit() {
+    this.LlamarApi()
+  }
+
+  LlamarApi () {
+    this.APIService.ObtenerClima().subscribe((data:any)=>{
+    this.clima=data;
+   console.log(this.clima)})
   }
 
   setDiaActual() {
