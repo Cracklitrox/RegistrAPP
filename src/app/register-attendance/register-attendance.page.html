@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title size="large"> Registrar Asignatura </ion-title>
+    <ion-title size="large"> Información Asignaturas </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -10,33 +10,203 @@
 <ion-content>
   <div class="rectangulo_regis_asig">
     <ion-item>
-      <ion-label> Registro </ion-label>
+      <ion-label> Asignaturas </ion-label>
     </ion-item>
-
   </div>
   
 <ion-accordion-group>
-  <ion-accordion value="first">
-    <ion-item slot="header" color="light">
-      <ion-label>First Accordion</ion-label>
+  <ion-accordion value="first" toggleIcon="phone-portrait-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="primary">
+      <ion-label>Programación De Aplicaciones Móviles</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">First Content</div>
+    <div class="ion-padding" slot="content">
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: Francisco Calfún</ion-label>
+            <ion-label class="claseId">ID Clase: PGY4121</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaLun">Dia: <b>Lunes</b></ion-label>
+            <ion-label class="numSala">Sala: Y409</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 08:30</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 10:40</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaMie">Dia: <b>Miercoles</b></ion-label>
+            <ion-label class="numSala">Sala: Y407</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 08:30</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 09:50</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>    
+    </div>
   </ion-accordion>
-  <ion-accordion value="second">
-    <ion-item slot="header" color="light">
-      <ion-label>Second Accordion</ion-label>
+
+  <ion-accordion value="second" toggleIcon="language-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="warning">
+      <ion-label>Ingles Intermedio</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">Second Content</div>
+    <div class="ion-padding" slot="content">
+      <ion-card >
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: Pablo Proinick</ion-label>
+            <ion-label class="claseId">ID Clase: INI5111</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaLun">Dia: <b>Lunes</b></ion-label>
+            <ion-label class="numSala">Sala: Y411</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 13:40</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 15:10</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaMie">Dia: <b>Miercoles</b></ion-label>
+            <ion-label class="numSala">Sala: Y411</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 11:30</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 13:40</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaJue">Dia: <b>Jueves</b></ion-label>
+            <ion-label class="numSala">Sala: Y411</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 10:00</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 12:10</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
   </ion-accordion>
-  <ion-accordion value="third">
-    <ion-item slot="header" color="light">
-      <ion-label>Third Accordion</ion-label>
+
+  <ion-accordion value="third" toggleIcon="stats-chart-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="tertiary">
+      <ion-label>Estadística Descriptiva</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">Third Content</div>
+    <div class="ion-padding" slot="content">
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: Victor Agüero</ion-label>
+            <ion-label class="claseId">ID Clase: MAT4140</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaLun">Dia: <b>Lunes</b></ion-label>
+            <ion-label class="numSala">Sala: Y409</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 15:11</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 15:50</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaJue">Dia: <b>Jueves</b></ion-label>
+            <ion-label class="numSala">Sala: Y409</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 15:11</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 16:40</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="fourth" toggleIcon="git-pull-request-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="success">
+      <ion-label>Arquitectura De Software</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: German Barrientos</ion-label>
+            <ion-label class="claseId">ID Clase: ASY4131</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaMar">Dia: <b>Martes</b></ion-label>
+            <ion-label class="numSala">Sala: Y409</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 10:40</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 12:10</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaVie">Dia: <b>Viernes</b></ion-label>
+            <ion-label class="numSala">Sala: Y407</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 12:10</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 14:20</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="fifth" toggleIcon="people-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="danger">
+      <ion-label>Etica Para El Trabajo</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: Boris Sepúlveda</ion-label>
+            <ion-label class="claseId">ID Clase: EAY4470</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaMar">Dia: <b>Martes</b></ion-label>
+            <ion-label class="numSala">Sala: Y403</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 12:10</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 13:40</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="sixth" toggleIcon="document-attach-outline" toggleIconSlot="end">
+    <ion-item slot="header" color="secondary">
+      <ion-label>Calidad De Software</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item color="light">
+            <ion-label class="nombreProfe">Profesor: Yessica Bolivar</ion-label>
+            <ion-label class="claseId">ID Clase: CSY4111</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaLun">Dia: <b>Lunes</b></ion-label>
+            <ion-label class="numSala">Sala: Y407</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 10:00</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 11:20</ion-label>
+          </ion-item>
+          <ion-item lines="none" color="light">
+            <ion-label class="claseDia" id="diaJue">Dia: <b>Jueves</b></ion-label>
+            <ion-label class="numSala">Sala: Y407</ion-label>
+          </ion-item>
+          <ion-item color="light">
+            <ion-label class="horaInicio">Hora Inicio: 13:40</ion-label>
+            <ion-label class="horaTermino">Hora Termino: 15:10</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </div>
   </ion-accordion>
 </ion-accordion-group>
-
-
 </ion-content>
 
 

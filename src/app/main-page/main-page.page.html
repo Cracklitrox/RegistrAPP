@@ -14,7 +14,7 @@
     <div class="contenedor-imagenes">
       <div class="imagen2">
         <img id="qr" src='assets/images/pruebas/qrcode-generado.png' alt="Imagen 2">
-        <p *ngFor="let dato of clima"> {{dato.Temperature.UnitType}} {{dato.Temperature.Unit}}</p>
+        <p *ngFor="let dato of clima"> {{dato.Temperature.UnitType}} {{"°"}} {{dato.Temperature.Unit}}</p>
       </div>
       <div class="texto">
         <h1><b>Matías Soto</b></h1>
