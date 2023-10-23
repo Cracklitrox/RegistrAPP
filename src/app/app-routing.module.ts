@@ -67,7 +67,8 @@ const routes: Routes = [
   },
   {
     path: 'waiting-page-logout',
-    loadChildren: () => import('./waiting-page-logout/waiting-page-logout.module').then( m => m.WaitingPageLogoutPageModule)
+    loadChildren: () => import('./waiting-page-logout/waiting-page-logout.module').then( m => m.WaitingPageLogoutPageModule),
+    canActivate: [AuthorizedStudentGuard]
   },
 
   {

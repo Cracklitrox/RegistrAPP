@@ -57,6 +57,7 @@ export class OptionsPage implements OnInit {
           text: 'Aceptar',
           handler: () => {
             console.log('El usuario ha decidido cerrar la sesión. Redirigiendo a la página de inicio de sesión (login).');
+            localStorage.clear();
             this.router.navigate(['/waiting-page-logout']);
           }
         }

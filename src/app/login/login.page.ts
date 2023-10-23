@@ -90,6 +90,7 @@ export class LoginPage {
     this.registr.verificarExistenciaAlumno(this.usuario.correo, this.usuario.contrasena).subscribe((existe) => {
       if (existe) {
         this.router.navigate(['/waiting-page-welcome-user']);
+        localStorage.setItem('ingresado', 'true');
         this.userService.setCorreoInstitucional(this.usuario.correo);
         this.userService.setContrasena(this.usuario.contrasena);
         console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
