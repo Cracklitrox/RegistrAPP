@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BdService } from '../bd.service';
 
 @Component({
   selector: 'app-password-reset',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class PasswordResetPage {
 
   constructor(
+    private bdService: BdService,
     private platform: Platform,
     private alertController: AlertController,
     private router: Router
@@ -24,6 +26,23 @@ export class PasswordResetPage {
   @ViewChild('passwordResetForm') passwordResetFrom!: NgForm;
 
   correoInstitucional: string = '';
+  contrasena: string = '';
+
+
+  async ngOnInit() {
+  }
+
+  async recuperarContrasena () {
+    const usuarioExistente = await this.bdService.get(this.correoInstitucional);
+
+    if (usuarioExistente == null) {
+      this.mostrarAlerta ('Error','El nombre de usuario no existe.');
+      return;
+    }
+    await this.bdService.remove (this.correoInstitucional);
+    await this.bdService.set (this.correoInstitucional, this.contrasena);
+    await this.router.navigate (['/login']);
+  }
 
   detectarTema() {
     this.platform.ready().then(() => {
