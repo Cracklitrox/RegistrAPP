@@ -3,6 +3,7 @@ import { Platform, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { BdService } from '../bd.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { UserService } from '../user.service';
 export class LoginPage {
 
   constructor(
+    private bdService : BdService,
     private platform: Platform,
     private alertController: AlertController,
     private router: Router,
@@ -64,9 +66,16 @@ export class LoginPage {
       this.mostrarAlerta('Error', 'La contraseña debe tener entre 8 y 30 caracteres.');
       return;
     }
-    this.router.navigate(['/waiting-page-welcome-user']);
-    this.userService.setCorreoInstitucional(this.correoInstitucional);
-    this.userService.setContrasena(this.contrasena);
+
+    const contraseñaGuardada=await this.bdService.get (this.correoInstitucional)
+
+    if (contraseñaGuardada==this.contrasena){
+      this.router.navigate(['/waiting-page-welcome-user']);
+      this.userService.setCorreoInstitucional(this.correoInstitucional);
+      this.userService.setContrasena(this.contrasena);
+    
+    }
+    else {this.mostrarAlerta ('Incorrecto', 'Este usuario o contraseña no existe')};
   }
 
   async mostrarAlerta(titulo: string, mensaje: string) {
