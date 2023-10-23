@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <div style="text-align: center; width: 85%;">
+      <p class="api" *ngFor="let dato of clima">{{dato.IconPhrase}}  <ion-icon name="partly-sunny-outline"></ion-icon> {{dato.Temperature.UnitType}} {{"°"}} {{dato.Temperature.Unit}}</p>
+    </div>    
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +17,6 @@
     <div class="contenedor-imagenes">
       <div class="imagen2">
         <img id="qr" src='assets/images/pruebas/qrcode-generado.png' alt="Imagen 2">
-        <p *ngFor="let dato of clima">Temperatura Actual: {{dato.Temperature.UnitType}} {{"°"}} {{dato.Temperature.Unit}}</p>
       </div>
       <div class="texto">
         <h1><b>Carlos Gacitua</b></h1>
