@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <div style="text-align: center; width: 85%;">
-      <p class="api" *ngFor="let dato of clima">{{dato.IconPhrase}}  <ion-icon name="partly-sunny-outline"></ion-icon> {{dato.Temperature.UnitType}} {{"°"}} {{dato.Temperature.Unit}}</p>
+      <p class="api" *ngFor="let dato of clima">{{dato.IconPhrase}}  <ion-icon name="partly-sunny-outline"></ion-icon> {{dato.Temperature.Value}} {{"°"}} {{dato.Temperature.Unit}}</p>
     </div>    
   </ion-toolbar>
 </ion-header>
