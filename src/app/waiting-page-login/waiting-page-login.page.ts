@@ -3,7 +3,6 @@ import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-waiting-page-login',
@@ -19,12 +18,8 @@ export class WaitingPageLoginPage {
 
   constructor(
     private animationCtrl: AnimationController,
-    private router: Router,
-    private storage: Storage
+    private router: Router
     ) {
-      this.storage.create();
-      console.log('Se cago el constructor');
-      console.log("Creacion de base de datos lista.");
     }
 
   ngAfterViewInit() {
