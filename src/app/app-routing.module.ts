@@ -71,21 +71,10 @@ const routes: Routes = [
   },
 
   {
-    path: 'user-registration',
-    loadChildren: () => import('./user-registration/user-registration.module').then( m => m.UserRegistrationPageModule)
-  },
-
-  {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },
-
-  {
     path: '**',
     component: NotFoundPage,
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
-
 
 ];
 

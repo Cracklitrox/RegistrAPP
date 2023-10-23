@@ -15,7 +15,7 @@ export class AuthorizedStudentGuard implements CanActivate {
     const contrasena = this.userService.getContrasena();
 
     return true;
-  
+      /*
     if (correoInstitucional === 'c.gacitua' && contrasena === 'carlitos8') {
       console.log(correoInstitucional);
       console.log(contrasena);
@@ -28,7 +28,7 @@ export class AuthorizedStudentGuard implements CanActivate {
       this.router.navigate(['login']);
       return false;
     }
-
+    */
    
   }
   

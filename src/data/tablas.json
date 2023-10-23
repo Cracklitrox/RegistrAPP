@@ -1,0 +1,36 @@
+{
+  "alumno": [
+    {
+      "id": 1,
+      "run": "21.196.666",
+      "dv_run": "1",
+      "pnombre": "Carlos",
+      "snombre": "Jared",
+      "appaterno": "Gacitua",
+      "apmaterno": "Villarroel",
+      "contrasena": "admin1234",
+      "correo_institucional": "c.gacitua@duocuc.cl",
+      "fecha_nacimiento": "2002-12-21",
+      "telefono": 12345678,
+      "direccion": "hogar 1234",
+      "qr_credencial": "src\\assets\\images\\pruebas\\qrcode-generado.png",
+      "foto_portada": "src\\assets\\images\\usuarios\\usuario_id_0.png"
+    },
+    {
+      "id": 2,
+      "run": "19.748.288",
+      "dv_run": "k",
+      "pnombre": "Jose",
+      "snombre": "Nose",
+      "appaterno": "Alcachofa",
+      "apmaterno": "Afocjcala",
+      "contrasena": "jose4321",
+      "correo_institucional": "jo.alcachofa@duocuc.cl",
+      "fecha_nacimiento": "2000-04-02",
+      "telefono": 87654321,
+      "direccion": "hogar 4321",
+      "qr_credencial": "src\\assets\\images\\pruebas\\qrcode-generado (1).png",
+      "foto_portada": "src\\assets\\images\\usuarios\\usuario_id_0.png"
+    }
+  ]
+}

@@ -40,6 +40,9 @@ body.dark {
         .rectangulo #imagen-duoc {
             content: url("../src/assets/images/logo-duoc.png");
         }
+        .Horario .boton-container #imagenCamaraQR {
+            content: url("../src/assets/icon/qr_dark.png");
+        }
     }
 }
 
@@ -49,9 +52,6 @@ body.dark {
         .logo-container {
             background: transparent url("../src/assets/images/carreras/Ing_Informatica.png") center/contain no-repeat;
         }
-        .Horario .boton-container #imagenCamaraQR {
-            content: url("/src/assets/icon/qr_white.png");
-        }
     }
 
      // Logo duoc de main-page.page.html
@@ -60,7 +60,7 @@ body.dark {
             content: url("../src/assets/images/dark/image.png");
         }
         .Horario .boton-container #imagenCamaraQR {
-            content: url("/src/assets/icon/qr_dark.png");
+            content: url("../src/assets/icon/qr_white.png");
         }
     }
 }

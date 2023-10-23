@@ -1,4 +1,4 @@
-.rectangulo_regis_asig{
+.rectangulo_regis_asig {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,31 +9,35 @@
     margin-left: 4%;
     margin-right: 4%;
     margin-bottom: 4%;
-  }
-  
-  .claseDia,.horaInicio,.nombreProfe{
+}
+
+.claseDia,
+.horaInicio,
+.nombreProfe {
     text-align: start;
-  }
-  
-  #diaLun b{
-    color:dodgerblue;
-  }
-  
-  #diaMar b{
+}
+
+#diaLun b {
+    color: dodgerblue;
+}
+
+#diaMar b {
     color: chocolate;
-  }
-  
-  #diaMie b{
+}
+
+#diaMie b {
     color: blueviolet;
-  }
-  
-  #diaJue b{
-    color:darkgreen;
-  }
-  
-  #diaVie b{
+}
+
+#diaJue b {
+    color: darkgreen;
+}
+
+#diaVie b {
     color: teal;
-  }
-  .numSala,.horaTermino,.claseId{
+}
+.numSala,
+.horaTermino,
+.claseId {
     text-align: end;
-  }
+}

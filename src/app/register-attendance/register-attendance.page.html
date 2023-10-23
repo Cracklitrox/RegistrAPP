@@ -1,6 +1,5 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title size="large"> Registro de Asistencia </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -10,125 +9,33 @@
 <ion-content>
   <div class="rectangulo_regis_asig">
     <ion-item>
-      <ion-label> <b>Pulsa en Registrar Asistencia y Escanea el Código</b> </ion-label>
+      <ion-label> Registro </ion-label>
     </ion-item>
+
   </div>
   
 <ion-accordion-group>
-  <ion-accordion value="first" toggleIcon="phone-portrait-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="primary">
-      <ion-label>Programación De Aplicaciones Móviles</ion-label>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>First Accordion</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card>
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: Francisco Calfún</ion-label>
-            <ion-label class="claseId">ID Clase: PGY4121</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button>    
-    </div>
+    <div class="ion-padding" slot="content">First Content</div>
   </ion-accordion>
-
-  <ion-accordion value="second" toggleIcon="language-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="warning">
-      <ion-label>Ingles Intermedio</ion-label>
+  <ion-accordion value="second">
+    <ion-item slot="header" color="light">
+      <ion-label>Second Accordion</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card >
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: Pablo Proinick</ion-label>
-            <ion-label class="claseId">ID Clase: INI5111</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button>
-    </div>
+    <div class="ion-padding" slot="content">Second Content</div>
   </ion-accordion>
-
-  <ion-accordion value="third" toggleIcon="stats-chart-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="tertiary">
-      <ion-label>Estadística Descriptiva</ion-label>
+  <ion-accordion value="third">
+    <ion-item slot="header" color="light">
+      <ion-label>Third Accordion</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card>
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: Victor Agüero</ion-label>
-            <ion-label class="claseId">ID Clase: MAT4140</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card> 
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button>
-    </div>
-  </ion-accordion>
-
-  <ion-accordion value="fourth" toggleIcon="git-pull-request-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="success">
-      <ion-label>Arquitectura De Software</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card>
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: German Barrientos</ion-label>
-            <ion-label class="claseId">ID Clase: ASY4131</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card> 
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button>
-    </div>
-  </ion-accordion>
-
-  <ion-accordion value="fifth" toggleIcon="people-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="danger">
-      <ion-label>Etica Para El Trabajo</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card>
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: Boris Sepúlveda</ion-label>
-            <ion-label class="claseId">ID Clase: EAY4470</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button> 
-    </div>
-  </ion-accordion>
-
-  <ion-accordion value="sixth" toggleIcon="document-attach-outline" toggleIconSlot="end">
-    <ion-item slot="header" color="secondary">
-      <ion-label>Calidad De Software</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-card>
-        <ion-list lines="inset">
-          <ion-item color="light">
-            <ion-label class="nombreProfe">Profesor: Yessica Bolivar</ion-label>
-            <ion-label class="claseId">ID Clase: CSY4111</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-      <ion-button expand="block" color="dark"> 
-        Registrar Asistencia
-      <ion-icon slot="end" name="add-circle"></ion-icon></ion-button> 
-    </div>
+    <div class="ion-padding" slot="content">Third Content</div>
   </ion-accordion>
 </ion-accordion-group>
+
+
 </ion-content>
 
 
