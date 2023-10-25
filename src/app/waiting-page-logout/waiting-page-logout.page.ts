@@ -3,7 +3,6 @@ import { QueryList } from '@angular/core';
 import { Animation } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-waiting-page-logout',
@@ -17,11 +16,9 @@ export class WaitingPageLogoutPage implements OnInit {
   private elementWaitingPageLogout?: Animation;
   correoInstitucional: string = '';
 
-  constructor(private animationCtrl: AnimationController, private router: Router, private userService: UserService) {}
+  constructor(private animationCtrl: AnimationController, private router: Router) {}
 
-  ngOnInit() {
-    this.correoInstitucional = this.userService.getNombreCorreoInstitucional();
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     const element0 = this.elements.first;

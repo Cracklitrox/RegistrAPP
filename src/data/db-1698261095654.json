@@ -6,15 +6,15 @@
       "dv_run": "1",
       "pnombre": "Carlos",
       "snombre": "Jared",
-      "appaterno": "Gacitua",
+      "appaterno": "",
       "apmaterno": "Villarroel",
       "contrasena": "admin1234",
       "correo_institucional": "c.gacitua@duocuc.cl",
       "fecha_nacimiento": "2002-12-21",
       "telefono": 12345678,
       "direccion": "hogar 1234",
-      "qr_credencial": "/assets/images/qr/qr_alumno1.png",
-      "foto_portada": "/assets/images/usuarios/usuario_id1.png"
+      "qr_credencial": "src\\assets\\images\\pruebas\\qrcode-generado.png",
+      "foto_portada": "src\\assets\\images\\usuarios\\usuario_id_0.png"
     },
     {
       "id": 2,
@@ -29,8 +29,8 @@
       "fecha_nacimiento": "2000-04-02",
       "telefono": 87654321,
       "direccion": "hogar 4321",
-      "qr_credencial": "/assets/images/qr/qr_alumno2.png",
-      "foto_portada": "/assets/images/usuarios/usuario_id2.png"
+      "qr_credencial": "src\\assets\\images\\pruebas\\qrcode-generado (1).png",
+      "foto_portada": "src\\assets\\images\\usuarios\\usuario_id_0.png"
     }
   ]
 }

@@ -5,7 +5,7 @@
     </ion-buttons>
     <div style="text-align: center; width: 85%;">
       <p class="api" *ngFor="let dato of clima">{{dato.IconPhrase}}  <ion-icon name="partly-sunny-outline"></ion-icon> {{dato.Temperature.Value}} {{"°"}} {{dato.Temperature.Unit}}</p>
-    </div>    
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -16,12 +16,12 @@
     </div>
     <div class="contenedor-imagenes">
       <div class="imagen2">
-        <img id="qr" src='assets/images/pruebas/qrcode-generado.png' alt="Imagen 2">
+        <img [src]="alumnoDetalles.qr_credencial" alt="QR del alumno" *ngIf="alumnoDetalles.qr_credencial" />
       </div>
-      <div class="texto">
-        <h1><b>Carlos Gacitua</b></h1>
+      <div class="texto" *ngIf="alumnoDetalles">
+        <h1><b>{{ alumnoDetalles.pnombre }} {{ alumnoDetalles.appaterno }}</b></h1>
         <h2><b>Ingeniería en Informática</b></h2>
-        <h2><b>21.196.666-1</b></h2>
+        <h2><b>{{ alumnoDetalles.run }}-{{ alumnoDetalles.dv_run }}</b></h2>
       </div>
     </div>
   </div>

@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
 import { RegistrAPPService } from '../registr-app.service';
 import { Usuario } from '../interface/Modelos';
 
@@ -22,7 +21,6 @@ export class LoginPage {
     private platform: Platform,
     private alertController: AlertController,
     private router: Router,
-    private userService: UserService,
     private registr: RegistrAPPService,
   ) {
     this.imagenFooter = '';
@@ -89,11 +87,13 @@ export class LoginPage {
     console.log("Buscando ID usuario");
     this.registr.verificarExistenciaAlumno(this.usuario.correo, this.usuario.contrasena).subscribe((existe) => {
       if (existe) {
-        this.router.navigate(['/waiting-page-welcome-user']);
-        localStorage.setItem('ingresado', 'true');
-        this.userService.setCorreoInstitucional(this.usuario.correo);
-        this.userService.setContrasena(this.usuario.contrasena);
-        console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
+        this.registr.obtenerAlumnoPorCorreo(this.usuario.correo).subscribe((alumno) => {
+          // Guardar los detalles del alumno en localStorage
+          localStorage.setItem('alumnoDetalles', JSON.stringify(alumno));
+          this.router.navigate(['/waiting-page-welcome-user']);
+          localStorage.setItem('ingresado', 'true');
+          console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
+        });
       } else {
         this.mostrarAlerta('Error', 'No se ha encontrado a ningún usuario');
         return;

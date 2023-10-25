@@ -17,11 +17,11 @@ export class DisavowedStudentGuard implements CanActivate {
 
     
     if (localStorage.getItem('ingresado')){
-      console.log('ddd')
+      console.log('Verificado')
       this.router.navigate(['/main-page'])
       return false;
     } else {
-      console.log('sss')
+      console.log('No verificado')
       return true;
     }
   }

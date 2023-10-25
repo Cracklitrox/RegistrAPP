@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { APIService } from '../api.service';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -13,21 +11,24 @@ import { HttpClientModule } from '@angular/common/http';
 export class MainPagePage implements OnInit {
   diaActual: string = '';
   materias!: any[];
-  clima: any []=[];
+  clima: any[] = [];
+  alumnoDetalles: any;
 
-  constructor(private appComponent : AppComponent , private APIService: APIService) {
+  constructor(private appComponent: AppComponent, private APIService: APIService) {
     this.setDiaActual();
     this.setMaterias();
+    this.alumnoDetalles = JSON.parse(localStorage.getItem('alumnoDetalles') || '{}');
   }
 
   ngOnInit() {
     this.LlamarApi()
   }
 
-  LlamarApi () {
-    this.APIService.ObtenerClima().subscribe((data:any)=>{
-    this.clima=data;
-   console.log(this.clima)})
+  LlamarApi() {
+    this.APIService.ObtenerClima().subscribe((data: any) => {
+      this.clima = data;
+      console.log(this.clima)
+    })
   }
 
   setDiaActual() {
@@ -96,7 +97,7 @@ export class MainPagePage implements OnInit {
             horarioClaseInicio: '12:11',
             horarioClaseFinal: '12:50',
           },
-          
+
           {
             titulo: 'Etica para el trabajo',
             porcentajeAsistencia: 100,

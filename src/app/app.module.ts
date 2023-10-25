@@ -5,14 +5,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './user.service';
 import { RegistrAPPService } from './registr-app.service';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, UserService, RegistrAPPService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, RegistrAPPService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
