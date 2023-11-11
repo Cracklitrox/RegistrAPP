@@ -1,3 +1,8 @@
+.accordion-group {
+    align-items: center;
+    justify-content: center;
+}
+
 .rectangulo_regis_asig {
     display: flex;
     flex-direction: column;
@@ -40,4 +45,9 @@
 .horaTermino,
 .claseId {
     text-align: end;
+}
+
+.toolbarColor {
+    --background: #33658aff;
+    
 }
