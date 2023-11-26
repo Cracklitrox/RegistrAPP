@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { APIService } from '../api.service';
+import { BarcodeScanner, ScanResult, ScanOptions} from '@capacitor-community/barcode-scanner';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -14,10 +16,39 @@ export class MainPagePage implements OnInit {
   clima: any[] = [];
   alumnoDetalles: any;
 
-  constructor(private appComponent: AppComponent, private APIService: APIService) {
+  constructor(private appComponent: AppComponent, private APIService: APIService, private toastController: ToastController) {
     this.setDiaActual();
     this.setMaterias();
     this.alumnoDetalles = JSON.parse(localStorage.getItem('alumnoDetalles') || '{}');
+  }
+
+  async abrirCamaraQR() {
+    const options: ScanOptions = {
+      targetedFormats: [],
+      cameraDirection: 'back'
+    };
+  
+    try {
+      const result: ScanResult = await BarcodeScanner.startScan(options);
+  
+      if (!result.hasContent) {
+        console.log('Escaneo cancelado');
+      } else {
+        console.log('Código QR escaneado:', result.content);
+        await this.mostrarMensaje('Asistencia registrada');
+      }
+    } catch (error) {
+      console.error('Error al escanear el código QR:', error);
+    }
+  }
+
+  async mostrarMensaje(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000, // Duración en milisegundos
+      position: 'middle' // Posición del mensaje en la pantalla
+    });
+    toast.present();
   }
 
   ngOnInit() {
@@ -209,7 +240,16 @@ export class MainPagePage implements OnInit {
         ];
         break;
       default:
-        this.materias = [];
+        this.materias = [
+          {
+            titulo: 'Arquitectura',
+            porcentajeAsistencia: 100,
+            profesor: 'German Barrientos',
+            idClase: 'Y407',
+            horarioClaseInicio: '12:11',
+            horarioClaseFinal: '12:50',
+          }
+        ];
         break;
     }
     console.log(this.materias);
