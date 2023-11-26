@@ -29,12 +29,12 @@ export class MainPagePage implements OnInit {
     };
   
     try {
-      const result: ScanResult = await BarcodeScanner.startScan(options);
+      const resultado: ScanResult = await BarcodeScanner.startScan(options);
   
-      if (!result.hasContent) {
+      if (!resultado.hasContent) {
         console.log('Escaneo cancelado');
       } else {
-        console.log('Código QR escaneado:', result.content);
+        console.log('Código QR escaneado:', resultado.content);
         await this.mostrarMensaje('Asistencia registrada');
       }
     } catch (error) {
@@ -43,12 +43,12 @@ export class MainPagePage implements OnInit {
   }
 
   async mostrarMensaje(mensaje: string) {
-    const toast = await this.toastController.create({
+    const mensajeAlerta = await this.toastController.create({
       message: mensaje,
-      duration: 2000, // Duración en milisegundos
-      position: 'middle' // Posición del mensaje en la pantalla
+      duration: 2000,
+      position: 'middle'
     });
-    toast.present();
+    mensajeAlerta.present();
   }
 
   ngOnInit() {
