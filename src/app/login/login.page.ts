@@ -17,6 +17,41 @@ export class LoginPage {
     contrasena: ''
   }
 
+  private accounts: any [] =[
+    {
+      id: 1,
+      run: "21.196.666",
+      dv_run: "1",
+      pnombre: "Carlos",
+      snombre: "Jared",
+      appaterno: "Gacitua",
+      apmaterno: "Villarroel",
+      contrasena: "admin1234",
+      correo_institucional: "c.gacitua@duocuc.cl",
+      fecha_nacimiento: "2002-12-21",
+      telefono: 12345678,
+      direccion: "hogar 1234",
+      qr_credencial: "/assets/images/qr/qr_alumno1.png",
+      foto_portada: "/assets/images/usuarios/usuario_id1.png"
+    },
+    {
+      id: 1,
+      run: "19.748.288",
+      dv_run: "k",
+      pnombre: "Jose",
+      snombre:  "Nose",
+      appaterno: "Alcachofa",
+      apmaterno: "Afocjcala",
+      contrasena: "jose4321",
+      correo_institucional: "jo.alcachofa@duocuc.cl",
+      fecha_nacimiento: "2000-04-02",
+      telefono: 87654321,
+      direccion: "hogar 4321",
+      qr_credencial: "/assets/images/qr/qr_alumno2.png",
+      foto_portada: "/assets/images/usuarios/usuario_id2.png"
+    }
+  ]
+
   constructor(
     private platform: Platform,
     private alertController: AlertController,
@@ -85,21 +120,21 @@ export class LoginPage {
 
   logueoUsuario() {
     console.log("Buscando ID usuario");
-    this.registr.verificarExistenciaAlumno(this.usuario.correo, this.usuario.contrasena).subscribe((existe) => {
-      if (existe) {
-        this.registr.obtenerAlumnoPorCorreo(this.usuario.correo).subscribe((alumno) => {
-          // Guardar los detalles del alumno en localStorage
-          localStorage.setItem('alumnoDetalles', JSON.stringify(alumno));
-          this.router.navigate(['/waiting-page-welcome-user']);
-          localStorage.setItem('ingresado', 'true');
-          console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
-        });
-      } else {
-        this.mostrarAlerta('Error', 'No se ha encontrado a ningún usuario');
-        return;
-      }
-    }, (error) => {
-      console.log("Error en logueoUsuario()");
-    });
+    const usuarioEncontrado = this.obtenerUsuarioPorCredenciales(this.usuario.correo, this.usuario.contrasena);
+    if (usuarioEncontrado) {
+      // Guardar los detalles del usuario en localStorage
+      localStorage.setItem('usuarioDetalles', JSON.stringify(usuarioEncontrado));
+      this.router.navigate(['/waiting-page-welcome-user']);
+      localStorage.setItem('ingresado', 'true');
+      console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
+    } else {  
+      this.mostrarAlerta('Error', 'No se ha encontrado a ningún usuario');
+    }
+  }
+
+  obtenerUsuarioPorCredenciales(correo: string, contrasena: string): any | null {
+    return this.accounts.find(
+      (user) => user.correo_institucional === correo && user.contrasena === contrasena
+    );
   }
 }

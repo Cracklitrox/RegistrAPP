@@ -15,13 +15,13 @@ export class WaitingPageWelcomeUserPage {
   private animation!: Animation;
   private elementWaitingPageUser?: Animation;
   correoInstitucional: string = '';
-  alumnoDetalles: any;
+  usuarioDetalles: any;
 
   constructor(
     private animationCtrl: AnimationController,
     private router: Router,
     ) {
-      this.alumnoDetalles = JSON.parse(localStorage.getItem('alumnoDetalles') || '{}');
+      this.usuarioDetalles = JSON.parse(localStorage.getItem('usuarioDetalles') || '{}');
     }
 
   ngOnInit() {}

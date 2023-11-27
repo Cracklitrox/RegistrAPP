@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./virtual-credential.page.scss'],
 })
 export class VirtualCredentialPage implements OnInit {
-  alumnoDetalles: any;
+  usuarioDetalles: any;
 
   constructor() {
-    this.alumnoDetalles = JSON.parse(localStorage.getItem('alumnoDetalles') || '{}');
+    this.usuarioDetalles = JSON.parse(localStorage.getItem('usuarioDetalles') || '{}');
   }
 
   ngOnInit() {

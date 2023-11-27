@@ -16,12 +16,12 @@
     </div>
     <div class="contenedor-imagenes">
       <div class="imagen2">
-        <img [src]="alumnoDetalles.qr_credencial" alt="QR del alumno" *ngIf="alumnoDetalles.qr_credencial" />
+        <img [src]="usuarioDetalles.qr_credencial" alt="QR del alumno" *ngIf="usuarioDetalles.qr_credencial" />
       </div>
-      <div class="texto" *ngIf="alumnoDetalles">
-        <h1><b>{{ alumnoDetalles.pnombre }} {{ alumnoDetalles.appaterno }}</b></h1>
+      <div class="texto" *ngIf="usuarioDetalles">
+        <h1><b>{{ usuarioDetalles.pnombre }} {{ usuarioDetalles.appaterno }}</b></h1>
         <h2><b>Ingeniería en Informática</b></h2>
-        <h2><b>{{ alumnoDetalles.run }}-{{ alumnoDetalles.dv_run }}</b></h2>
+        <h2><b>{{ usuarioDetalles.run }}-{{ usuarioDetalles.dv_run }}</b></h2>
       </div>
     </div>
   </div>
@@ -52,9 +52,9 @@
               </div>
               <div class="boton-container">
                 <ion-button fill="clear" (click)="abrirCamaraQR()">
-                  <p id="imagenCamaraQR" class="imagenCamaraQR"></p>
+                  <img *ngIf="imageSource" [src]="imageSource" alt="Imagen capturada">
                 </ion-button>                
-              </div>
+              </div>              
             </div>
           </div>
         </div>

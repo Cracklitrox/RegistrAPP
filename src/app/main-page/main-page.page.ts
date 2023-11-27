@@ -3,7 +3,7 @@ import { AppComponent } from '../app.component';
 import { APIService } from '../api.service';
 import { BarcodeScanner, ScanResult, ScanOptions} from '@capacitor-community/barcode-scanner';
 import { ToastController } from '@ionic/angular';
-
+import { Camera, CameraResultType, CameraSource, CameraPhoto } from '@capacitor/camera';
 
 @Component({
   selector: 'app-main-page',
@@ -14,12 +14,13 @@ export class MainPagePage implements OnInit {
   diaActual: string = '';
   materias!: any[];
   clima: any[] = [];
-  alumnoDetalles: any;
+  usuarioDetalles: any;
+  imageSource: any;
 
   constructor(private appComponent: AppComponent, private APIService: APIService, private toastController: ToastController) {
     this.setDiaActual();
     this.setMaterias();
-    this.alumnoDetalles = JSON.parse(localStorage.getItem('alumnoDetalles') || '{}');
+    this.usuarioDetalles = JSON.parse(localStorage.getItem('usuarioDetalles') || '{}');
   }
 
   async abrirCamaraQR() {
@@ -29,13 +30,19 @@ export class MainPagePage implements OnInit {
     };
   
     try {
-      const resultado: ScanResult = await BarcodeScanner.startScan(options);
+      // Comprueba los permisos de la cámara
+      const permisos = await Camera.checkPermissions();
+      if (permisos.camera === 'granted') {
+        const resultado: ScanResult = await BarcodeScanner.startScan(options);
   
-      if (!resultado.hasContent) {
-        console.log('Escaneo cancelado');
+        if (!resultado.hasContent) {
+          console.log('Escaneo cancelado');
+        } else {
+          console.log('Código QR escaneado:', resultado.content);
+          await this.mostrarMensaje('Asistencia registrada');
+        }
       } else {
-        console.log('Código QR escaneado:', resultado.content);
-        await this.mostrarMensaje('Asistencia registrada');
+        console.log('Permiso de cámara no concedido');
       }
     } catch (error) {
       console.error('Error al escanear el código QR:', error);
@@ -66,6 +73,26 @@ export class MainPagePage implements OnInit {
     const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const obtenerDiaActual = new Date().getDay();
     this.diaActual = diasSemana[obtenerDiaActual];
+  }
+
+  async takePicture() {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.DataUrl,
+        source: CameraSource.Prompt,
+      });
+
+      if (image.dataUrl !== undefined) {
+        this.imageSource = image.dataUrl;
+      } else {
+        // Maneja el caso en que image.dataUrl es undefined
+        console.log('No se pudo obtener la imagen');
+      }
+    } catch (error) {
+      console.error('Error al tomar la foto:', error);
+    }
   }
 
   // La idea es sacar los atributos de las tablas según el día del alumno.
