@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Bienvenido!
+      Bienvenido, {{ teacherData.pnombre }}!
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,20 +9,24 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      {{ teacherData.name }}
+      {{ teacherData.pnombre }} {{ teacherData.appaterno }}
     </ion-card-header>
 
     <ion-card-content>
       <div>
-        <p>Email: {{ teacherData.email }}</p>
-        <p>Materia: {{ teacherData.subject }}</p>
-      
+        <p>Email: {{ teacherData.correo_institucional }}</p>
+        <p>Fecha de Nacimiento: {{ teacherData.fecha_nacimiento }}</p>
+        <p>Teléfono: {{ teacherData.telefono }}</p>
+        <p>Dirección: {{ teacherData.direccion }}</p>
       </div>
 
       <div class="center-container">
-        <img src="assets/images/qr/qr_profesor.png" alt="Código QR del Profesor">
+        <img [src]="teacherData.foto_qr" alt="Código QR del Profesor">
       </div>
       
     </ion-card-content>
   </ion-card>
+  <ion-button expand="full" (click)="logout()">
+    Salir
+  </ion-button>
 </ion-content>

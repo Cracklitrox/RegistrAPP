@@ -35,7 +35,7 @@ export class LoginPage {
       foto_portada: "/assets/images/usuarios/usuario_id1.png"
     },
     {
-      id: 1,
+      id: 2,
       run: "19.748.288",
       dv_run: "k",
       pnombre: "Jose",
@@ -49,6 +49,21 @@ export class LoginPage {
       direccion: "hogar 4321",
       qr_credencial: "/assets/images/qr/qr_alumno2.png",
       foto_portada: "/assets/images/usuarios/usuario_id2.png"
+    },
+    {
+      id: 3,
+      run: "17.218.238",
+      dv_run: "4",
+      pnombre: "Francisco",
+      snombre:  "Nose",
+      appaterno: "Calfun",
+      apmaterno: "Nose",
+      contrasena: "profesor123",
+      correo_institucional: "f.calfun@profesor.duoc.cl",
+      fecha_nacimiento: "1983-04-02",
+      telefono: 912654879,
+      direccion: "hogar 4321",
+      foto_qr: "/assets/images/informatica/programacion_movil.png",
     }
   ]
 
@@ -91,18 +106,18 @@ export class LoginPage {
   }
 
   async onSubmit() {
-    const correoRegex = /^[a-zA-Z0-9._-]+@duocuc\.cl$/;
+    const correoRegex = /^[a-zA-Z0-9._-]+@(duocuc|profesor\.duoc)\.cl$/;
     if (this.usuario.correo.length < 4 || !correoRegex.test(this.usuario.correo)) {
-      this.mostrarAlerta('Error', 'El correo institucional debe ser válido y debe terminar con "@duocuc.cl".');
+      this.mostrarAlerta('Error', 'El correo institucional debe ser válido y debe terminar con "@duocuc.cl" o "@profesor.duoc.cl".');
       return;
     }
-
+  
     if (this.usuario.contrasena.length < 8 || this.usuario.contrasena.length > 30 || !/^[a-zA-Z0-9!@#$%^&*()-_+=<>?]+$/.test(this.usuario.contrasena)) {
       this.mostrarAlerta('Error', 'La contraseña debe tener entre 8 y 30 caracteres.');
       return;
     }
     this.logueoUsuario();
-  }
+  }  
 
   async mostrarAlerta(titulo: string, mensaje: string) {
     const alert = await this.alertController.create({
@@ -124,13 +139,19 @@ export class LoginPage {
     if (usuarioEncontrado) {
       // Guardar los detalles del usuario en localStorage
       localStorage.setItem('usuarioDetalles', JSON.stringify(usuarioEncontrado));
-      this.router.navigate(['/waiting-page-welcome-user']);
+      if (usuarioEncontrado.correo_institucional.endsWith('@profesor.duoc.cl')) {
+        // Si el usuario es un profesor, redirigir a 'teacher-page'
+        this.router.navigate(['/teacher-page']);
+      } else {
+        // Si no, redirigir a 'waiting-page-welcome-user'
+        this.router.navigate(['/waiting-page-welcome-user']);
+      }
       localStorage.setItem('ingresado', 'true');
       console.log("Usuario encontrado: " + this.usuario.correo + "\rContraseña encontrada: " + this.usuario.contrasena);
     } else {  
       this.mostrarAlerta('Error', 'No se ha encontrado a ningún usuario');
     }
-  }
+  }  
 
   obtenerUsuarioPorCredenciales(correo: string, contrasena: string): any | null {
     return this.accounts.find(
