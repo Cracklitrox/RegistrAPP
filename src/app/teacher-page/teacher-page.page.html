@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      {{ teacherData.name }}
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        <p>Email: {{ teacherData.email }}</p>
+        <p>Materia: {{ teacherData.subject }}</p>
+      
+      </div>
+
+      <div class="center-container">
+        <img src="assets/images/qr/qr_profesor.png" alt="Código QR del Profesor">
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -70,7 +70,11 @@ const routes: Routes = [
     loadChildren: () => import('./waiting-page-logout/waiting-page-logout.module').then( m => m.WaitingPageLogoutPageModule),
     canActivate: [AuthorizedStudentGuard]
   },
-
+  {
+    path: 'teacher-page',
+    loadChildren: () => import('./teacher-page/teacher-page.module').then( m => m.TeacherPagePageModule),
+    canActivate: [AuthorizedStudentGuard]
+  },
   {
     path: '**',
     component: NotFoundPage,
