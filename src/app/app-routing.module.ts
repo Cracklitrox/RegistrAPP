@@ -71,6 +71,11 @@ const routes: Routes = [
     canActivate: [AuthorizedStudentGuard]
   },
   {
+    path: 'camera',
+    loadChildren: () => import('./camera/camera.module').then( m => m.CameraPageModule),
+    canActivate: [AuthorizedStudentGuard]
+  },
+  {
     path: 'teacher-page',
     loadChildren: () => import('./teacher-page/teacher-page.module').then( m => m.TeacherPagePageModule),
     canActivate: [AuthorizedStudentGuard]

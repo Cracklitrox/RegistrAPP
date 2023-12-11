@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start" *ngIf="!scanActive">
+      <ion-back-button defaultHref="/main-page"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Scanear QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [class.scanner-active]="scanActive">
+  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" *ngIf="!scanActive">
+    <ion-icon name="scan" slot="start"></ion-icon>
+    Abrir Camara
+  </ion-button>
+  <p class="ion-text-center result" *ngIf="result && !scanActive">{{ result }}</p>
+  <ion-row class="scanner-buttons" [hidden]="!scanActive" *ngIf="scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="stopScanner()" class="ion-text-center">Cerrar Camara</ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="scan-box" [hidden]="!scanActive" *ngIf="scanActive">
+  </div>
+</ion-content>

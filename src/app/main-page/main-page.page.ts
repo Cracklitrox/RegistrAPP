@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { APIService } from '../api.service';
-import { BarcodeScanner, ScanResult, ScanOptions} from '@capacitor-community/barcode-scanner';
+// import { BarcodeScanner, ScanResult, ScanOptions} from '@capacitor-community/barcode-scanner';
 import { ToastController } from '@ionic/angular';
-import { Camera, CameraResultType, CameraSource, CameraPhoto } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { NavController } from '@ionic/angular';
+import { IonMenu } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -11,52 +14,60 @@ import { Camera, CameraResultType, CameraSource, CameraPhoto } from '@capacitor/
   styleUrls: ['./main-page.page.scss'],
 })
 export class MainPagePage implements OnInit {
+  @ViewChild(IonMenu) menu: IonMenu | undefined;
   diaActual: string = '';
   materias!: any[];
   clima: any[] = [];
   usuarioDetalles: any;
   imageSource: any;
 
-  constructor(private appComponent: AppComponent, private APIService: APIService, private toastController: ToastController) {
+  constructor(private appComponent: AppComponent, private APIService: APIService, private toastController: ToastController, private navCtrl: NavController, private router: Router) {
     this.setDiaActual();
     this.setMaterias();
     this.usuarioDetalles = JSON.parse(localStorage.getItem('usuarioDetalles') || '{}');
   }
 
-  async abrirCamaraQR() {
-    const options: ScanOptions = {
-      targetedFormats: [],
-      cameraDirection: 'back'
-    };
-  
-    try {
-      // Comprueba los permisos de la cámara
-      const permisos = await Camera.checkPermissions();
-      if (permisos.camera === 'granted') {
-        const resultado: ScanResult = await BarcodeScanner.startScan(options);
-  
-        if (!resultado.hasContent) {
-          console.log('Escaneo cancelado');
-        } else {
-          console.log('Código QR escaneado:', resultado.content);
-          await this.mostrarMensaje('Asistencia registrada');
-        }
-      } else {
-        console.log('Permiso de cámara no concedido');
-      }
-    } catch (error) {
-      console.error('Error al escanear el código QR:', error);
+  navigateToPage(page: string) {
+    this.router.navigateByUrl(`/${page}`);
+    if (this.menu && !this.menu.disabled) {
+      this.menu.close();
     }
   }
 
-  async mostrarMensaje(mensaje: string) {
-    const mensajeAlerta = await this.toastController.create({
-      message: mensaje,
-      duration: 2000,
-      position: 'middle'
-    });
-    mensajeAlerta.present();
-  }
+  // async abrirCamaraQR() {
+  //   const options: ScanOptions = {
+  //     targetedFormats: [],
+  //     cameraDirection: 'back'
+  //   };
+  
+  //   try {
+  //     // Comprueba los permisos de la cámara
+  //     const permisos = await Camera.checkPermissions();
+  //     if (permisos.camera === 'granted') {
+  //       const resultado: ScanResult = await BarcodeScanner.startScan(options);
+  
+  //       if (!resultado.hasContent) {
+  //         console.log('Escaneo cancelado');
+  //       } else {
+  //         console.log('Código QR escaneado:', resultado.content);
+  //         await this.mostrarMensaje('Asistencia registrada');
+  //       }
+  //     } else {
+  //       console.log('Permiso de cámara no concedido');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error al escanear el código QR:', error);
+  //   }
+  // }
+
+  // async mostrarMensaje(mensaje: string) {
+  //   const mensajeAlerta = await this.toastController.create({
+  //     message: mensaje,
+  //     duration: 2000,
+  //     position: 'middle'
+  //   });
+  //   mensajeAlerta.present();
+  // }
 
   ngOnInit() {
     this.LlamarApi()

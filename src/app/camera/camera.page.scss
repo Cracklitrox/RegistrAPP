@@ -1,0 +1,48 @@
+ion-content {
+    background-color: whitesmoke;
+    --background: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+ion-content.scanner-active {
+    background-color: transparent;
+    --background: transparent;
+    background-image: none;
+    background-size: auto;
+    background-repeat: initial;
+    background-position: initial;
+    height: auto;
+    overflow: auto;
+}
+
+body.scanner-active {
+    --background: transparent !important;
+    --ion-background-color: transparent !important;
+}
+
+.scanner-buttons {
+    margin: 0px;
+    position: absolute;
+    bottom: 100px;
+    width: 100vh;
+    height: 50px;
+    z-index: 11;
+    text-align: center;
+}
+
+.scan-box {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);
+    content: '';
+    display: block;
+    left: 50%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}

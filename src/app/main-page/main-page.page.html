@@ -51,9 +51,10 @@
                 <p class="asistenciaPorcentaje">Asistencia: {{ materia.porcentajeAsistencia }}%</p>
               </div>
               <div class="boton-container">
-                <ion-button fill="clear" (click)="abrirCamaraQR()">
+                <!-- <ion-button fill="clear" (click)="abrirCamaraQR()">
                   <img *ngIf="imageSource" [src]="imageSource" alt="Imagen capturada">
-                </ion-button>                
+                </ion-button> -->
+                <button ion-button (click)="navigateToPage('camera')">Escanear QR</button>
               </div>              
             </div>
           </div>
