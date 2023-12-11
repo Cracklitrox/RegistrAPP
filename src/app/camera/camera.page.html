@@ -1,23 +1,53 @@
 <ion-header>
-  <ion-toolbar color="light">
-    <ion-buttons slot="start" *ngIf="!scanActive">
-      <ion-back-button defaultHref="/main-page"></ion-back-button>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" class="buttonColor">
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Scanear QR</ion-title>
+    <ion-title>
+      Escanear Asistencia
+    </ion-title> 
   </ion-toolbar>
 </ion-header>
 
-<ion-content [class.scanner-active]="scanActive">
-  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" *ngIf="!scanActive">
-    <ion-icon name="scan" slot="start"></ion-icon>
-    Abrir Camara
+<ion-content>
+  <!-- Fallback for iOS PWA -->
+  <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event)">
+
+  <!-- Trigger the file input -->
+  <ion-button expand="full" (click)="captureImage()">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Imagen Guardada
   </ion-button>
-  <p class="ion-text-center result" *ngIf="result && !scanActive">{{ result }}</p>
-  <ion-row class="scanner-buttons" [hidden]="!scanActive" *ngIf="scanActive">
-    <ion-col class="ion-no-padding">
-      <ion-button expand="full" (click)="stopScanner()" class="ion-text-center">Cerrar Camara</ion-button>
-    </ion-col>
-  </ion-row>
-  <div class="scan-box" [hidden]="!scanActive" *ngIf="scanActive">
-  </div>
+
+  <ion-button expand="full" (click)="startScan()">
+    <ion-icon slot="start" name="qr-scanner"></ion-icon>
+    Iniciar Escaneo
+  </ion-button>
+
+  <ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
+    <ion-icon slot="start" name="refresh"></ion-icon>
+    Resetear
+  </ion-button>
+
+  <!-- Shows our camera stream -->
+  <video #video [hidden]="!scanActive" width="100%"></video>
+
+  <!-- Used to render the camera stream images -->
+  <canvas #canvas hidden></canvas>
+
+  <!-- Stop our scanner preview if active -->
+  <ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
+    <ion-icon slot="start" name="close"></ion-icon>
+    Parar escaneo
+  </ion-button>
+
+  <ion-card *ngIf="scanResult">
+    <ion-card-header>
+      <ion-card-title>QR Code</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ scanResult }}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
